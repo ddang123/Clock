@@ -13,16 +13,22 @@ describe('ClockService', () => {
   it('run timer and checking obserable value', (done: DoneFn) => {
     const service: ClockService = TestBed.get(ClockService);
     let currentDt = new Date();
-    // currentDt.setHours(11);
-    // currentDt.setMinutes(22);
-    // currentDt.setSeconds(33);
+    currentDt.setHours(11);
+    currentDt.setMinutes(22);
+    currentDt.setSeconds(33);
+    service.currentTime.next(currentDt);
     service.trigger.next(currentDt);
-    service.getDateTimeObserable().subscribe(value =>{
-      expect(value.getHours()).toBe(currentDt.getHours());
-      service.trigger.unsubscribe();
-      service.currentTime.unsubscribe();
-      done();
-    });
+    setTimeout(() => {
+       console.log("get result"); 
+       service.getDateTime().subscribe(value =>{
+        expect("11:22:34 AM").toBe(value.toLocaleTimeString());
+        done();
+        service.trigger.unsubscribe();
+        service.currentTime.unsubscribe();
+    
+      });
+      }, 1000);
+      
   });
 
   // xit('should gettimer', () => {
