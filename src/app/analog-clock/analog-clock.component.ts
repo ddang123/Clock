@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { build$ } from 'protractor/built/element';
 import { ClockService } from '../clock.service';
 import { pipe } from 'rxjs';
@@ -18,6 +18,10 @@ export class AnalogClockComponent implements OnInit, OnDestroy {
   thisHour;
   thisMin;
   thisSeconds;
+
+  @ViewChild('field1', null) hourInput:ElementRef;
+  @ViewChild('field2',null) minsInput:ElementRef;
+  @ViewChild('field3', null) secondsInput:ElementRef;
   constructor(private clockService:ClockService) { }
 
   ngOnInit() {
@@ -50,11 +54,14 @@ format(num: number) {
 }
 
 updateTime(){
-  console.log(888888888888888);
-  let t =new Date();
-  t.setHours(3);
-  t.setMinutes(15);
-  this.clockService.updateTime(t);
+  const valueInput1 = this.hourInput.nativeElement.value
+  const valueInput2 = this.minsInput.nativeElement.value
+  const valueInput3 = this.secondsInput.nativeElement.value
+  let newSetDate =new Date();
+  newSetDate.setHours(valueInput1);
+  newSetDate.setMinutes(valueInput2);
+  newSetDate.setSeconds(valueInput3);
+  this.clockService.updateTime(newSetDate);
 }
 
   ngOnDestroy(): void {

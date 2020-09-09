@@ -40,15 +40,15 @@ export class DigitalClockComponent implements OnInit {
     const valueInput1 = this.hourInput.nativeElement.value
     const valueInput2 = this.minsInput.nativeElement.value
     const valueInput3 = this.secondsInput.nativeElement.value
-  let t =new Date();
-  t.setHours(valueInput1);
-  t.setMinutes(valueInput2);
-  t.setSeconds(valueInput3);
-  this.clockService.updateTime(t);
+    let newSetDate =new Date();
+    newSetDate.setHours(valueInput1);
+    newSetDate.setMinutes(valueInput2);
+    newSetDate.setSeconds(valueInput3);
+    this.clockService.updateTime(newSetDate);
 }
 
   ngOnDestroy(): void {
-    
+    //this.
   }
 
 }
