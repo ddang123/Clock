@@ -1,0 +1,26 @@
+<!--p>Hour:  {{thisHour}}</p>
+<p>Mins:  {{thisMin}}</p>
+<p>Seconds:  {{thisSeconds}}</p-->
+
+<div class="clock-container clock2">
+    <div class="time">{{clockData}}</div>
+</div>
+<form>
+    <div class="form-group">
+      <label for="exampleFormControlFile1">set Hour</label>
+      <input  class="form-control-file" #field1>
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlFile1">set Mins</label>
+        <input  class="form-control-file" #field2>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">set Seconds</label>
+        <input  class="form-control-file" #field3>
+      </div>
+  </form>
+
+  <button mat-button class="mat-button mat-primary" 
+            (click)="updateTime()" >
+            Reset
+  </button>
