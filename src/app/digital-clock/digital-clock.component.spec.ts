@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DigitalClockComponent } from './digital-clock.component';
 
-describe('DigitalClockComponent', () => {
+xdescribe('DigitalClockComponent', () => {
   let component: DigitalClockComponent;
   let fixture: ComponentFixture<DigitalClockComponent>;
 
