@@ -65,7 +65,8 @@ updateTime(){
 }
 
   ngOnDestroy(): void {
-    
+    this.clockService.currentTime.unsubscribe();
+    this.clockService.trigger.unsubscribe();
   }
 
 }
