@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
     .analog-clock {
-      position: relative;
-      margin: 100px auto 0;
-      width: 200px;
-      height: 200px;
-      background-color: aliceblue;
-      border-radius: 50%;
+        position: absolute;
+        float: left;
+        margin: 10px auto 0;
+        width: 200px;
+        height: 200px;
+        background-color: aliceblue;
+        border-radius: 50%;
     }
 
     .hand {
@@ -43,12 +44,12 @@
     }
 
     .digital-clock {
-      position: absolute;
-      top: 350px;
-      left: 50%;
-      transform: translate3d(-50%, 0, 0);
-      font-size: 2em;
-      font-family: 'Source Code Pro', monospace;
+        position: absolute;
+        top: 300px;
+        left: 20%;
+        transform: translate3d(-50%, 0, 0);
+        font-size: 2em;
+        font-family: "Source Code Pro", monospace;
     }
     .column {
         float: left;
@@ -60,7 +61,8 @@
       /* Clear floats after the columns */
       .row:after {
         content: "";
-        display: table;
-        clear: both;
+    display: block;
+    clear: both;
+    height: 10px;
       }
   

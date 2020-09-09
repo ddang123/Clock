@@ -13,22 +13,21 @@
     <div class="column" style="background-color:#bbb;">
         <form>
             <div class="form-group">
-              <label for="exampleFormControlFile1">set Hour</label>
+              <label for="exampleFormControlFile1">Hour:   </label>
               <input  class="form-control-file" #field1>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlFile1">set Mins</label>
+                <label for="exampleFormControlFile1">Mins:   </label>
                 <input  class="form-control-file" #field2>
               </div>
               <div class="form-group">
-                <label for="exampleFormControlFile1">set Seconds</label>
+                <label for="exampleFormControlFile1">Seconds:</label>
                 <input  class="form-control-file" #field3>
               </div>
           </form>
+          <button mat-button class="mat-button mat-primary" 
+          (click)="updateTime()" >
+          Reset</button>
     </div>
   </div>
 
-  <button mat-button class="mat-button mat-primary" 
-            (click)="updateTime()" >
-            Reset
-  </button>

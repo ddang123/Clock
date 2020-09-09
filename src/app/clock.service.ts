@@ -23,43 +23,13 @@ export class ClockService {
           }
         )
       )
-    // switchMap
-    // interval(1000)
-    // .pipe(
-
-    // );
-    // setInterval(() => {
-    //   var time = new Date();
-    //   let nowData ={};
-    //   nowData['hour']=time.getHours();
-    //   nowData['hour']=time.getMinutes();
-    //   nowData['hour']=time.getSeconds();
-    //   this.timeStream.next(nowData);
-    // }, 1000);
   }
 
   private intervalUpdate(currentTime) {
-    //this.currentTime.next(currentTime);
-
-    //return interval(1000).
-    // interval(1000).
-    // pipe(
-    //   tap(() => {
-    //     let newDt = this.currentTime.getValue();
-    //     var seconds = newDt.getSeconds() + 10;
-    //     newDt = newDt + seconds;
-    //     this.currentTime.next(newDt);        
-    //     return this.currentTime;
-    //   })
-    // );
     setInterval(() => {        
         let newDt = this.currentTime.getValue();
         let newDate = new Date(newDt);
         newDate.setSeconds( newDate.getSeconds() + 1 );
-        let data ={};
-        // data['hour'] =newDate.getHours();
-        // data['mins'] =newDate.getMinutes();
-        // data['seconds'] =newDate.getSeconds()
         this.currentTime.next(newDate);        
         return this.currentTime;
     }, 1000);
