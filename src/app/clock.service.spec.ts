@@ -12,9 +12,12 @@ describe('ClockService', () => {
 
   it('run timer and checking obserable value', (done: DoneFn) => {
     const service: ClockService = TestBed.get(ClockService);
-    let currentDt = new Date()
-    service.trigger.next(1);
-    service.getDateTime().subscribe(value =>{
+    let currentDt = new Date();
+    // currentDt.setHours(11);
+    // currentDt.setMinutes(22);
+    // currentDt.setSeconds(33);
+    service.trigger.next(currentDt);
+    service.getDateTimeObserable().subscribe(value =>{
       expect(value.getHours()).toBe(currentDt.getHours());
       service.trigger.unsubscribe();
       service.currentTime.unsubscribe();
@@ -22,14 +25,14 @@ describe('ClockService', () => {
     });
   });
 
-  xit('should gettimer', () => {
-    const service: ClockService = TestBed.get(ClockService);
-    (done: DoneFn)=>{
-      service.getDateTime().subscribe(value =>{
-        expect(value).toBe("ooooooo");
-        done();
-      })
-    }
+  // xit('should gettimer', () => {
+  //   const service: ClockService = TestBed.get(ClockService);
+  //   (done: DoneFn)=>{
+  //     service.getDateTime().subscribe(value =>{
+  //       expect(value).toBe("ooooooo");
+  //       done();
+  //     })
+  //   }
     
-  });
+  // });
 });

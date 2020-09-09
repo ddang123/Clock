@@ -24,8 +24,8 @@ export class DigitalClockComponent implements OnInit {
   }
 
   private build(){
-    this.clockService.trigger.next(1);
-    this.clockService.getDateTime().subscribe(response => {
+    //this.clockService.trigger.next(1);
+    this.clockService.getDateTimeObserable().subscribe(response => {
         this.clockData = response.toLocaleTimeString();
         this.thisHour = response.getHours();
         this.thisMin = response.getMinutes()

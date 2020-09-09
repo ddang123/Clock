@@ -19,7 +19,8 @@ export class ClockService {
       .pipe(
         switchMap(
           (current) => {
-            return this.currentTime;
+            //return this.currentTime;
+            return this.intervalUpdate(current);
           }
         )
       )
@@ -31,18 +32,18 @@ export class ClockService {
         let newDate = new Date(newDt);
         newDate.setSeconds( newDate.getSeconds() + 1 );
         this.currentTime.next(newDate);        
-        return this.currentTime;
+        //return this.currentTime;
     }, 1000);
-
+    return this.currentTime;
   }
 
-  // getDateTime() {
-  //   return this.timeStream.asObservable();
-  // }
+  getDateTimeObserable() {
+    return this.currentTime.asObservable();
+  }
 
   updateTime(time: any) {
     this.currentTime.next(time); 
-    this.intervalUpdate(time);
+    //this.intervalUpdate(time);
     this.trigger.next(time);
     // this.timeStream.value = time;
 

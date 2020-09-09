@@ -29,7 +29,7 @@ export class AnalogClockComponent implements OnInit, OnDestroy {
   }
 
   private build(){
-    this.clockService.getDateTime().subscribe(response => {
+    this.clockService.getDateTimeObserable().subscribe(response => {
         this.clockData = response.hour;
         this.thisHour = response.getHours();
         this.thisMin = response.getMinutes()
