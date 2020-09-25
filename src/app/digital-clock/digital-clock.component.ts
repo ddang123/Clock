@@ -44,7 +44,11 @@ export class DigitalClockComponent implements OnInit {
     newSetDate.setHours(valueInput1);
     newSetDate.setMinutes(valueInput2);
     newSetDate.setSeconds(valueInput3);
-    this.clockService.updateTime(newSetDate);
+    this.callService(newSetDate);
+}
+ 
+ callService(newSetDate){
+  this.clockService.updateTime(newSetDate);
 }
 
   ngOnDestroy(): void {
